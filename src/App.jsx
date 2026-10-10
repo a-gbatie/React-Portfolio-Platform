@@ -1,9 +1,10 @@
+import { useState } from "react";
 import ProjectForm from "./components/ProjectForm";
 import SearchBar from "./components/SearchBar";
 import ProjectList from "./components/ProjectList";
 
 function App() {
-  const projects = [
+  const [projects, setProjects] = useState([
     {
       id: 1,
       title: "Personal Website",
@@ -19,13 +20,20 @@ function App() {
       title: "Shopping Cart",
       description: "A React shopping cart application",
     },
-  ];
+  ]);
+
+  function addNewProject(newProject) {
+    setProjects((prevProjects) => [
+      ...prevProjects,
+      { ...newProject, id: crypto.randomUUID() },
+    ]);
+  }
 
   return (
     <div className="App">
       <h1>Personal Project Showcase App</h1>
 
-      <ProjectForm />
+      <ProjectForm addNewProject={addNewProject} />
       <SearchBar />
       <ProjectList projects={projects} />
     </div>
