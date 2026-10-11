@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState } from "react";
 import ProjectForm from "./components/ProjectForm";
 import SearchBar from "./components/SearchBar";

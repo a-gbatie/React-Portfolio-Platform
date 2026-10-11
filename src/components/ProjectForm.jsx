@@ -24,9 +24,9 @@ function ProjectForm({ addNewProject }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Project</h2>
+      <h2>Add New Project</h2>
 
-      <label htmlFor="project-title">Title</label>
+      <label htmlFor="project-title">Title:</label>
       <input
         id="project-title"
         type="text"
@@ -35,7 +35,7 @@ function ProjectForm({ addNewProject }) {
         required
       />
 
-      <label htmlFor="project-description">Description</label>
+      <label htmlFor="project-description">Description:</label>
       <textarea
         id="project-description"
         value={description}
