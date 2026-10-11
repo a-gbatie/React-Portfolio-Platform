@@ -21,6 +21,7 @@ function App() {
       description: "A React shopping cart application",
     },
   ]);
+  const [search, setSearch] = useState("");
 
   function addNewProject(newProject) {
     setProjects((prevProjects) => [
@@ -29,13 +30,15 @@ function App() {
     ]);
   }
 
+  const filteredProjects = projects.filter((project) => project.title.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div className="App">
       <h1>Personal Project Showcase App</h1>
 
       <ProjectForm addNewProject={addNewProject} />
-      <SearchBar />
-      <ProjectList projects={projects} />
+      <SearchBar search={search} setSearch={setSearch} />
+      <ProjectList projects={filteredProjects} />
     </div>
   );
 }
